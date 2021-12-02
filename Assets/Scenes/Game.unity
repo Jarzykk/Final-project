@@ -64008,6 +64008,11 @@ PrefabInstance:
       propertyPath: _target
       value: 
       objectReference: {fileID: 1121718034}
+    - target: {fileID: 8533920133114831725, guid: 58a1a31e679ca7e48a998cb5de17ba49,
+        type: 3}
+      propertyPath: _maxHealth
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 8533920133114831730, guid: 58a1a31e679ca7e48a998cb5de17ba49,
         type: 3}
       propertyPath: _firstPoint
@@ -64369,7 +64374,7 @@ PrefabInstance:
     - target: {fileID: 6232526949607365220, guid: 0b03990ead7a07d4faeb8829190661ae,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: 60.26
       objectReference: {fileID: 0}
     - target: {fileID: 6232526949607365220, guid: 0b03990ead7a07d4faeb8829190661ae,
         type: 3}
@@ -64415,6 +64420,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6232526949607365221, guid: 0b03990ead7a07d4faeb8829190661ae,
+        type: 3}
+      propertyPath: _dagameDelay
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6232526949607365222, guid: 0b03990ead7a07d4faeb8829190661ae,
+        type: 3}
+      propertyPath: _maxHealth
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 6232526949607365223, guid: 0b03990ead7a07d4faeb8829190661ae,
         type: 3}
@@ -64534,6 +64549,11 @@ PrefabInstance:
       propertyPath: _target
       value: 
       objectReference: {fileID: 1121718034}
+    - target: {fileID: 8533920133114831725, guid: 58a1a31e679ca7e48a998cb5de17ba49,
+        type: 3}
+      propertyPath: _maxHealth
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 8533920133114831730, guid: 58a1a31e679ca7e48a998cb5de17ba49,
         type: 3}
       propertyPath: _firstPoint

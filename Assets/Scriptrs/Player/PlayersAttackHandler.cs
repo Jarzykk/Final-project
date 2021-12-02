@@ -50,7 +50,7 @@ public class PlayersAttackHandler : MonoBehaviour
             if(enemy.GetComponent<Enemy>())
             {
                 HitTarget?.Invoke();
-                enemy.GetComponent<Enemy>().TakeDamage(_damage);
+                enemy.GetComponent<Enemy>().TakeDamage(_damage);              
             }
         }
     }
