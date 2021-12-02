@@ -64356,6 +64356,11 @@ PrefabInstance:
       propertyPath: _minPitchHurtSoundLevel
       value: 0.8
       objectReference: {fileID: 0}
+    - target: {fileID: 6232526949607365216, guid: 0b03990ead7a07d4faeb8829190661ae,
+        type: 3}
+      propertyPath: _deyalBeforePlayLandedAnimation
+      value: 0.5
+      objectReference: {fileID: 0}
     - target: {fileID: 6232526949607365220, guid: 0b03990ead7a07d4faeb8829190661ae,
         type: 3}
       propertyPath: m_RootOrder
@@ -64364,12 +64369,12 @@ PrefabInstance:
     - target: {fileID: 6232526949607365220, guid: 0b03990ead7a07d4faeb8829190661ae,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.641
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6232526949607365220, guid: 0b03990ead7a07d4faeb8829190661ae,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.581
+      value: -0.511
       objectReference: {fileID: 0}
     - target: {fileID: 6232526949607365220, guid: 0b03990ead7a07d4faeb8829190661ae,
         type: 3}
