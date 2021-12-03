@@ -6,10 +6,8 @@ public class OnCollisionPlayerKiller : MonoBehaviour
 {
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.GetComponent<Player>())
+        if(collision.TryGetComponent<Player>(out Player player))
         {
-            Player player = collision.GetComponent<Player>();
-
             player.ApplyDamage(player.CurrentHealth);
         }
     }

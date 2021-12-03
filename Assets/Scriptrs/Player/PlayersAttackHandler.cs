@@ -34,23 +34,31 @@ public class PlayersAttackHandler : MonoBehaviour
         if (_attackTimer >= _delayBetweenAttacks)
         {
             Attacked?.Invoke();
-            Invoke("TryToHit", _dagameDelay);
+            StartCoroutine(TryToHit());
 
             _attackTimer = 0;
         }
     }
 
-    private void TryToHit()
+    private IEnumerator TryToHit()
     {
+        float elapsedTime = 0;
+
+        while(elapsedTime < _dagameDelay)
+        {
+            elapsedTime += Time.deltaTime;
+            yield return null;
+        }
+
         Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(_attackPoint.position, _attackRange);
 
         foreach (Collider2D enemy in hitEnemies)
         {
 
-            if(enemy.GetComponent<Enemy>())
+            if(enemy.gameObject.TryGetComponent<Enemy>(out Enemy target))
             {
                 HitTarget?.Invoke();
-                enemy.GetComponent<Enemy>().TakeDamage(_damage);              
+                target.TakeDamage(_damage);              
             }
         }
     }

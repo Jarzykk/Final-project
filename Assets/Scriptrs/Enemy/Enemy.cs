@@ -34,7 +34,6 @@ public class Enemy : MonoBehaviour
         if(damage > 0 && _currentHealth > 0)
         {
             _currentHealth -= damage;
-            _enemyAnimations.OnTakeDamage();
             TakingDamage?.Invoke();
 
             if (_currentHealth <= 0)
@@ -45,7 +44,6 @@ public class Enemy : MonoBehaviour
     private void Die()
     {
         _deathSound.Play();
-        _enemyAnimations.OnDeath();
         _collider.enabled = false;
         _rigidBody.isKinematic = true;
         Dying?.Invoke();

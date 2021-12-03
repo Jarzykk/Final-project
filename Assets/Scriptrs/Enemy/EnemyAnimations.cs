@@ -2,9 +2,25 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[RequireComponent(typeof(Animator))]
+[RequireComponent(typeof(Animator), typeof(Enemy))]
 public class EnemyAnimations : MonoBehaviour
 {
+    private Enemy _enemy;
+
+    private void OnEnable()
+    {
+        _enemy = GetComponent<Enemy>();
+
+        _enemy.TakingDamage += OnTakeDamage;
+        _enemy.Dying += OnDeath;
+    }
+
+    private void OnDisable()
+    {
+        _enemy.TakingDamage -= OnTakeDamage;
+        _enemy.Dying -= OnDeath;
+    }
+
     private Animator _animator;
 
     private void Awake()

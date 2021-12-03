@@ -19,7 +19,6 @@ public class PursueState : State
     private Rigidbody2D _rigidBody;
     private FlipEnemy _enemyFlipper;
     private EnemyAnimations _enemyAnimations;
-    private Transform _attackPoint;
     
     private RaycastHit2D[] _hitBuffer = new RaycastHit2D[16];
     private List<RaycastHit2D> _hitBufferList = new List<RaycastHit2D>(16);
@@ -29,7 +28,6 @@ public class PursueState : State
         _enemyAnimations = GetComponent<EnemyAnimations>();
         _rigidBody = GetComponent<Rigidbody2D>();
         _enemyFlipper = GetComponent<FlipEnemy>();
-        _attackPoint = GetComponent<Enemy>().AttackPoint;
 
         _targetAtRight = transform.position.x < Target.transform.position.x ? true : false;
         _targetWasAtRight = _targetAtRight;
@@ -47,24 +45,12 @@ public class PursueState : State
     {
         if (_targetWasAtRight != _targetAtRight)
         {
-            StopMoveAnimatiom();
-            _currentRotationCount = _rotationDelay;
-            _targetWasAtRight = _targetAtRight;
-            _needToRotate = true;
+            DoWhenStopedFacingTarget();
         }
 
         _currentRotationCount -= Time.deltaTime;
 
-        if (_currentRotationCount > 0)
-        {
-            return;
-        }
-
-        if (_needToRotate && _currentRotationCount <= 0)
-        {
-            _enemyFlipper.Flip();
-            _needToRotate = false;
-        }
+        RotateToFaceTargetOnNeed();
 
         if(_needToRotate == false && _currentRotationCount <= 0)
         {
@@ -108,6 +94,23 @@ public class PursueState : State
 
         if (_hitBufferList.Count <= 0)
             _rigidBody.position = Vector2.MoveTowards(transform.position, movePosition, _speed * Time.deltaTime);
+    }
+
+    private void DoWhenStopedFacingTarget()
+    {
+        StopMoveAnimatiom();
+        _currentRotationCount = _rotationDelay;
+        _targetWasAtRight = _targetAtRight;
+        _needToRotate = true;
+    }
+
+    private void RotateToFaceTargetOnNeed()
+    {
+        if (_needToRotate && _currentRotationCount <= 0)
+        {
+            _enemyFlipper.Flip();
+            _needToRotate = false;
+        }
     }
 
     private void StartMoveAnimation()

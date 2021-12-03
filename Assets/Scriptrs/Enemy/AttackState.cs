@@ -63,8 +63,8 @@ public class AttackState : State
 
         foreach (Collider2D target in hitTargets)
         {
-            if (target.GetComponent<Player>())
-                target.GetComponent<Player>().ApplyDamage(_damage);
+            if (target.TryGetComponent<Player>(out Player player))
+                player.ApplyDamage(_damage);
         }
     }
 }

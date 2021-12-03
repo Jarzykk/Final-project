@@ -20,7 +20,7 @@ public class Chest : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.GetComponent<Player>())
+        if(collision.TryGetComponent<Player>(out Player player))
         {
             if(_isOpened == false)
             {

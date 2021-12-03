@@ -25,10 +25,10 @@ public class KnockbackHandler : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.GetComponent<Player>())
+        if(collision.TryGetComponent<Player>(out Player player) && collision.TryGetComponent<PlayersMovement>(out PlayersMovement playersController))
         {
-            collision.GetComponent<PlayersMovement>().Knockback(_knockbackForce);
-            collision.GetComponent<Player>().ApplyDamage(_damage);
+            playersController.Knockback(_knockbackForce);
+            player.ApplyDamage(_damage);
         }
     }
 }

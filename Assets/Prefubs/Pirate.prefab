@@ -775,7 +775,7 @@ MonoBehaviour:
   _targetState: {fileID: 8533920133114831730}
   _pursueDistance: 7
   _delayBeforTransit: 2
-  _stateAfterPlayerIsFound: {fileID: 8533920133114831720}
+  _playerIsFound: {fileID: 8533920133114831720}
 --- !u!114 &8533920133114831723
 MonoBehaviour:
   m_ObjectHideFlags: 0
