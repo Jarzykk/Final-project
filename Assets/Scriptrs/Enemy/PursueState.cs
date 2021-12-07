@@ -9,7 +9,7 @@ public class PursueState : State
     [SerializeField] private float _rotationDelay;
 
     private float _currentRotationCount = 0;
-    private float _minXAxisDifferenseToUseMoveAnimation = 0.025f;
+    private float _minXAxisDifferenseForMoveAnimation = 0.025f;
     private float _minMoveDistance = 0.001f;
     private bool _targetAtRight;
     private bool _targetWasAtRight;
@@ -54,14 +54,10 @@ public class PursueState : State
 
         if(_needToRotate == false && _currentRotationCount <= 0)
         {
-            if (Mathf.Abs(transform.position.x - _lastPositionX) >= _minXAxisDifferenseToUseMoveAnimation && _isPlayingMoveAnimation == false && _currentRotationCount <= 0)
-            {
+            if (Mathf.Abs(transform.position.x - _lastPositionX) >= _minXAxisDifferenseForMoveAnimation && _isPlayingMoveAnimation == false && _currentRotationCount <= 0)
                 StartMoveAnimation();
-            }
-            else if (Mathf.Abs(transform.position.x - _lastPositionX) < _minXAxisDifferenseToUseMoveAnimation && _isPlayingMoveAnimation == true && _currentRotationCount <= 0)
-            {
+            else if (Mathf.Abs(transform.position.x - _lastPositionX) < _minXAxisDifferenseForMoveAnimation && _isPlayingMoveAnimation == true && _currentRotationCount <= 0)
                 StopMoveAnimatiom();
-            }
 
             Movement();
         }
