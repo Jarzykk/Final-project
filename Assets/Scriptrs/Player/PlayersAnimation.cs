@@ -69,49 +69,49 @@ public class PlayersAnimation : MonoBehaviour
 
     private void OnAttack()
     {
-        _animator.SetTrigger("IsAttaking");
+        _animator.SetTrigger(AnimatorPlayerController.States.Triggers.IsAttaking);
     }
 
     private void OnJump()
     {
-        _animator.SetTrigger("Jump");
+        _animator.SetTrigger(AnimatorPlayerController.States.Triggers.Jump);
     }
 
     private void OnMove()
     {
-        _animator.SetFloat("Speed", _playrsMovement.Speed);
+        _animator.SetFloat(AnimatorPlayerController.Params.Speed, _playrsMovement.Speed);
         _isMoving = true;
     }
 
     private void OnStopMoving()
     {
-        _animator.SetFloat("Speed", 0);
+        _animator.SetFloat(AnimatorPlayerController.Params.Speed, 0);
         _isMoving = false;
     }
 
     private void OnLostGround()
     {
-        _animator.SetTrigger("Fall");
+        _animator.SetTrigger(AnimatorPlayerController.States.Triggers.Fall);
     }
 
     private void OnLandAfterFall()
     {
-        _animator.SetTrigger("LandedAfterFall");
+        _animator.SetTrigger(AnimatorPlayerController.States.Triggers.LandedAfterFall);
     }
 
     private void OnTakeDamage()
     {
-        _animator.SetTrigger("Hurt");
+        _animator.SetTrigger(AnimatorPlayerController.States.Triggers.Hurt);
     }
 
     private void OnDeath()
     {
-        _animator.SetBool("IsDead", true);
+        _animator.SetBool(AnimatorPlayerController.States.Bools.IsDead, true);
     }
 
     private void ChangeGroundedAnimatorParameter()
     {
-        _animator.SetBool("IsGrounded", _playrsMovement.Grounded);
+        _animator.SetBool(AnimatorPlayerController.States.Bools.IsGrounded, _playrsMovement.Grounded);
     }
 
     private void Flip()

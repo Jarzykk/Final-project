@@ -13,38 +13,36 @@ public class LostPlayerTransition : Transition
 
     private void Update()
     {
-        CheckIfTargetIsLost();
+        if (Vector2.Distance(transform.position, Target.transform.position) > _pursueDistance)
+            OnTargetLost();
+        else
+            OnTargetFound();
 
         if (_playerIsLost == true)
             _transitDelayCount -= Time.deltaTime;
 
-        CheckNeedOfTransitionForTargetState();
+        if(_transitDelayCount <= 0 && _playerIsLost)
+            OnTransitToTargetState();
     }
 
-    private void CheckNeedOfTransitionForTargetState()
+    private void OnTransitToTargetState()
     {
-        if (_transitDelayCount <= 0 && _playerIsLost)
+        _playerIsFound.enabled = NeedTransit = true;
+    }
+
+    private void OnTargetLost()
+    {
+        if (_playerIsLost == false)
         {
-            _playerIsFound.enabled = true;
-            NeedTransit = true;
+            _playerIsLost = true;
+            _playerIsFound.enabled = false;
+            _transitDelayCount = _delayBeforTransit;
         }
     }
 
-    private void CheckIfTargetIsLost()
+    private void OnTargetFound()
     {
-        if (Vector2.Distance(transform.position, Target.transform.position) > _pursueDistance)
-        {
-            if (_playerIsLost == false)
-            {
-                _playerIsLost = true;
-                _playerIsFound.enabled = false;
-                _transitDelayCount = _delayBeforTransit;
-            }
-        }
-        else
-        {
-            _playerIsLost = false;
-            _playerIsFound.enabled = true;
-        }
+        _playerIsLost = false;
+        _playerIsFound.enabled = true;
     }
 }

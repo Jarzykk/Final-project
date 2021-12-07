@@ -54,7 +54,7 @@ public class AttackState : State
     {
         _attackSound.Play();
         _enemyAnimations.OnAttack();
-        Invoke("TryToHit", _dagameDelay);
+        Invoke(nameof(TryToHit), _dagameDelay);
     }
 
     private void TryToHit()

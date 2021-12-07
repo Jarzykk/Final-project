@@ -7,7 +7,6 @@ public class EnemyStateMachine : MonoBehaviour
 {
     [SerializeField] private State _firstState;
 
-    private Player _target;
     private State _current;
     private Enemy _enemy;
 
@@ -17,7 +16,6 @@ public class EnemyStateMachine : MonoBehaviour
     {
         _enemy = GetComponent<Enemy>();
         _enemy.Dying += OnEnemyDying;
-        _target = GetComponent<Enemy>().Target;
         Reset(_firstState);
     }
 
@@ -36,7 +34,7 @@ public class EnemyStateMachine : MonoBehaviour
             Transit(nextState);
     }
 
-    public void OnEnemyDying()
+    private void OnEnemyDying()
     {
         DisableStateMachine();
     }
@@ -44,7 +42,7 @@ public class EnemyStateMachine : MonoBehaviour
     private void Reset(State starttState)
     {
         _current = starttState;
-        _current?.Enter(_target);
+        _current?.Enter(_enemy.Target);
     }
 
     private void DisableStateMachine()
@@ -57,6 +55,6 @@ public class EnemyStateMachine : MonoBehaviour
     {
         _current?.Exit();
         _current = nextState;        
-        _current?.Enter(_target);
+        _current?.Enter(_enemy.Target);
     }
 }
