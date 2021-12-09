@@ -1502,7 +1502,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1819755004}
-  - component: {fileID: 1819755006}
   - component: {fileID: 1819755005}
   - component: {fileID: 1819755007}
   m_Layer: 5
@@ -1544,18 +1543,6 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9659a2c526f53554d81873c4db2932a8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &1819755006
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1819755003}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bd794a92020b4c643a90cb0ee4512754, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _sceneNumberToLoad: 1
@@ -1654,7 +1641,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1819755006}
+      - m_Target: {fileID: 1819755005}
         m_MethodName: LoadSceneByNumber
         m_Mode: 1
         m_Arguments:

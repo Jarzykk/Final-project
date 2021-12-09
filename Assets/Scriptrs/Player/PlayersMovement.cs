@@ -67,11 +67,11 @@ public class PlayersMovement : MonoBehaviour
         Vector2 moveAlongGround = new Vector2(_groundNormal.y, -_groundNormal.x);
         Vector2 move = moveAlongGround * deltaPosition.x * _speed;
 
-        Movement(move, false);
+        Move(move, false);
 
         move = Vector2.up * deltaPosition.y;
 
-        Movement(move, true);
+        Move(move, true);
 
         if(_wasGrounded == true)
         {
@@ -123,7 +123,7 @@ public class PlayersMovement : MonoBehaviour
         _velocity.y += knockbackForce;
     }
 
-    private void Movement(Vector2 move, bool yMovement)
+    private void Move(Vector2 move, bool yMovement)
     {
         float distance = move.magnitude;
 

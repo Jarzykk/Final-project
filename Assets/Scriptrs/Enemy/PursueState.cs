@@ -29,7 +29,7 @@ public class PursueState : State
         _rigidBody = GetComponent<Rigidbody2D>();
         _enemyFlipper = GetComponent<FlipEnemy>();
 
-        _targetAtRight = transform.position.x < Target.transform.position.x ? true : false;
+        _targetAtRight = CheckIfTargetIsRight();
         _targetWasAtRight = _targetAtRight;
 
         _lastPositionX = transform.position.x;
@@ -59,14 +59,14 @@ public class PursueState : State
             else if (Mathf.Abs(transform.position.x - _lastPositionX) < _minXAxisDifferenseForMoveAnimation && _isPlayingMoveAnimation == true && _currentRotationCount <= 0)
                 StopMoveAnimatiom();
 
-            Movement();
+            Move();
         }
 
         _lastPositionX = transform.position.x;
-        _targetAtRight = transform.position.x < Target.transform.position.x ? true : false;
+        _targetAtRight = CheckIfTargetIsRight();
     }
 
-    private void Movement()
+    private void Move()
     {
         Vector2 nextStepPosition = Vector2.MoveTowards(transform.position, Target.transform.position, _speed * Time.deltaTime);
         float nextStepDistance = Vector2.Distance(transform.position, nextStepPosition);
@@ -90,6 +90,12 @@ public class PursueState : State
 
         if (_hitBufferList.Count <= 0)
             _rigidBody.position = Vector2.MoveTowards(transform.position, movePosition, _speed * Time.deltaTime);
+    }
+
+    private bool CheckIfTargetIsRight()
+    {
+        float targetsPositionX = Target.transform.position.x;
+        return transform.position.x < targetsPositionX ? true : false;
     }
 
     private void DoWhenStopedFacingTarget()

@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 public class LooseGameScreen : MonoBehaviour
 {
     [SerializeField] private Player _player;
-    [SerializeField] private PlayersControllerHandler _controllerToDisable;
+    [SerializeField] private PlayerInput _controllerToDisable;
     [SerializeField] private GameObject _looseScreen;
     [SerializeField] private int _sceneNumberToLoad;
     [SerializeField] private AudioSource _mainThemeToStopOnWin;

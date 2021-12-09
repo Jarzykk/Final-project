@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
-[RequireComponent(typeof(Collider2D), typeof(Rigidbody2D))]
 public class Player : MonoBehaviour
 {
     [SerializeField] private int _maxHealth;
@@ -17,19 +16,15 @@ public class Player : MonoBehaviour
     public event UnityAction TookCoin;
     public event UnityAction TookDamage;
     public event UnityAction Died;
+    public event UnityAction WasReset;
 
     private int _currentHealth;
     private int _coinsAmount = 0;
     private bool _isAlive = true;
-    private Collider2D _collider;
-    private Rigidbody2D _rigidbody;
 
     private void Start()
     {
-        _collider = GetComponent<Collider2D>();
-        _rigidbody = GetComponent<Rigidbody2D>();
-
-        ResetPlayer();
+        Reset();
     }
 
     public void ApplyDamage(int damage)
@@ -51,22 +46,21 @@ public class Player : MonoBehaviour
     private void Die()
     {
         _isAlive = false;
-        _collider.enabled = false;
-        _rigidbody.isKinematic = true;
         Died?.Invoke();
     }
 
-    public void TakeCoin()
+    public void OnTakeCoin()
     {
         _coinsAmount++;
         TookCoin?.Invoke();
         CoinsAmountChanged?.Invoke(_coinsAmount);
     }
 
-    private void ResetPlayer()
+    private void Reset()
     {
         _currentHealth = _maxHealth;
         HealthChanged?.Invoke(_currentHealth);
         CoinsAmountChanged?.Invoke(_coinsAmount);
+        WasReset?.Invoke();
     }
 }
