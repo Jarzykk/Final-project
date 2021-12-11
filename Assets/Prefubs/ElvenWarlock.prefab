@@ -413,6 +413,8 @@ GameObject:
   - component: {fileID: 1902150927715963695}
   - component: {fileID: 1902150927715963693}
   - component: {fileID: 1994463344}
+  - component: {fileID: 591169780}
+  - component: {fileID: 591169781}
   m_Layer: 0
   m_Name: ElvenWarlock
   m_TagString: Untagged
@@ -653,6 +655,7 @@ MonoBehaviour:
   _transitions:
   - {fileID: 1902150927715963695}
   - {fileID: 1902150927715963688}
+  - {fileID: 591169781}
   _speed: 2
   _rotationDelay: 1
 --- !u!114 &1902150927715963688
@@ -670,7 +673,7 @@ MonoBehaviour:
   _targetState: {fileID: 1902150927715963668}
   _pursueDistance: 12
   _delayBeforTransit: 2
-  _stateAfterPlayerIsFound: {fileID: 1902150927715963690}
+  _playerIsFound: {fileID: 1902150927715963690}
 --- !u!114 &1902150927715963695
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -699,6 +702,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _transitions:
   - {fileID: 1994463344}
+  - {fileID: 591169781}
   _fireballTemplate: {fileID: 8401768794048815560, guid: de3fc129393c2bf4cab5bec89d51bf87,
     type: 3}
   _attackRange: 7
@@ -720,6 +724,32 @@ MonoBehaviour:
   _targetState: {fileID: 1902150927715963690}
   _attackPoint: {fileID: 1902150926518795069}
   _attackRange: 7
+--- !u!114 &591169780
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1902150927715963676}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 817b2af364a2e364fa59322286edcd96, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _transitions: []
+--- !u!114 &591169781
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1902150927715963676}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c8c10fb0cd5262349b1805f6fb066040, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _targetState: {fileID: 591169780}
 --- !u!1 &2878482155308345537
 GameObject:
   m_ObjectHideFlags: 0

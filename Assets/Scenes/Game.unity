@@ -1740,38 +1740,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 380222949}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &591169779 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1902150927715963676, guid: 1c32595a0646b4e4787763e7045a6633,
-    type: 3}
-  m_PrefabInstance: {fileID: 1902150926639943051}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &591169780
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 591169779}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 817b2af364a2e364fa59322286edcd96, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _transitions: []
---- !u!114 &591169781
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 591169779}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c8c10fb0cd5262349b1805f6fb066040, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _targetState: {fileID: 591169780}
 --- !u!4 &633275027 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4469468090077498456, guid: 7c946685568480f419f209d7579b4c01,
@@ -64254,26 +64222,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: ElvenWarlock
       objectReference: {fileID: 0}
-    - target: {fileID: 1902150927715963690, guid: 1c32595a0646b4e4787763e7045a6633,
-        type: 3}
-      propertyPath: _transitions.Array.size
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 1902150927715963690, guid: 1c32595a0646b4e4787763e7045a6633,
-        type: 3}
-      propertyPath: _transitions.Array.data[2]
-      value: 
-      objectReference: {fileID: 591169781}
-    - target: {fileID: 1902150927715963693, guid: 1c32595a0646b4e4787763e7045a6633,
-        type: 3}
-      propertyPath: _transitions.Array.size
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 1902150927715963693, guid: 1c32595a0646b4e4787763e7045a6633,
-        type: 3}
-      propertyPath: _transitions.Array.data[1]
-      value: 
-      objectReference: {fileID: 591169781}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1c32595a0646b4e4787763e7045a6633, type: 3}
 --- !u!1001 &4538179408635795344

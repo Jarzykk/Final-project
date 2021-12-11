@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[RequireComponent(typeof(Animator), typeof(Enemy), typeof(FlipEnemy))]
+[RequireComponent(typeof(Animator), typeof(Enemy), typeof(EnemyFliper))]
 public class RangeAttackState : State
 {
     [SerializeField] private Fireball _fireballTemplate;
@@ -18,14 +18,14 @@ public class RangeAttackState : State
     private float _attackTimeCount;
     private Animator _animator;
     private Transform _attackPoint;
-    private FlipEnemy _enemyFlipper;
+    private EnemyFliper _enemyFlipper;
 
     private void OnEnable()
     {
         _attackTimeCount = 0;
         _animator = GetComponent<Animator>();
         _attackPoint = GetComponent<Enemy>().AttackPoint;
-        _enemyFlipper = GetComponent<FlipEnemy>();
+        _enemyFlipper = GetComponent<EnemyFliper>();
 
         _facingTarget = CheckIfFacingTarget();
 

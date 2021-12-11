@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[RequireComponent(typeof(Rigidbody2D), typeof(FlipEnemy), typeof(EnemyAnimations))]
+[RequireComponent(typeof(Rigidbody2D), typeof(EnemyFliper), typeof(EnemyAnimations))]
 public class PursueState : State
 {
     [SerializeField] private float _speed;
@@ -17,7 +17,7 @@ public class PursueState : State
     private float _lastPositionX;
     private bool _needToRotate = false;
     private Rigidbody2D _rigidBody;
-    private FlipEnemy _enemyFlipper;
+    private EnemyFliper _enemyFlipper;
     private EnemyAnimations _enemyAnimations;
     
     private RaycastHit2D[] _hitBuffer = new RaycastHit2D[16];
@@ -27,7 +27,7 @@ public class PursueState : State
     {
         _enemyAnimations = GetComponent<EnemyAnimations>();
         _rigidBody = GetComponent<Rigidbody2D>();
-        _enemyFlipper = GetComponent<FlipEnemy>();
+        _enemyFlipper = GetComponent<EnemyFliper>();
 
         _targetAtRight = CheckIfTargetIsRight();
         _targetWasAtRight = _targetAtRight;
